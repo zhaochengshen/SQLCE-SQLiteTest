@@ -12,11 +12,11 @@ namespace TestLocalDataBase
     public sealed class SQLLiteHelper
     {
         private static readonly SQLLiteHelper helper = new SQLLiteHelper();
-        string connString = "Data Source=" + @"C:\嵌入式数据库测试\SQLLite.db";
-        private SQLiteConnection conn = null;
+         private SQLiteConnection conn = null;
 
         private SQLLiteHelper()
         {
+            string connString = "Data Source=" + Environment.CurrentDirectory + @"\database\SQLLite.db;Password=123;";
             conn = new SQLiteConnection(connString);
         }
         public static SQLLiteHelper GetInstance()

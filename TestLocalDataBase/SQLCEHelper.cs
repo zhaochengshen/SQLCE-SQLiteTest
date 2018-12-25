@@ -17,17 +17,14 @@ namespace TestLocalDataBase
     {
         private static SQLCEHelper helper;
         private static readonly object obj = new object();
-
-        string connString = "Data Source=" + @"C:\嵌入式数据库测试\SQLCE4.0.sdf;Password=123;";
-
-        //string connString = "Data Source=" + @"C:\嵌入式数据库测试\SQLCE3.5.sdf;Password=123;";
-
-
-
+  
         private SqlCeConnection conn = null;
 
         private SQLCEHelper()
         {
+          //  string connString = "Data Source=" + Environment.CurrentDirectory + @"\database\SQLCE4.0.sdf;Password=123;";
+            string connString = "Data Source=" + Environment.CurrentDirectory + @"\database\SQLCE3.5.sdf;Password=123;";
+
             conn = new SqlCeConnection(connString);
         }
 
@@ -96,7 +93,7 @@ namespace TestLocalDataBase
             catch { return -1; }
 
         }
-         
+
         public int Query(string sql)
         {
             try
